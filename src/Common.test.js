@@ -8,8 +8,12 @@ import Common from './Common';
 // • deletion of an item removed the element so it is no longer displayed to the user
 
 
-test('renders learn react link', () => {
+test('Find button', () => {
   render(<Common />);
+
+  const linkButton = screen.getByRole("button");//i for ignore casing
+  expect(linkButton).toBeInTheDocument();
+
   // const linkElement = screen.getByText(/butt0n/i);//i for ignore casing
 
   // <DisplayItem title = "Title 1" checked = "Yes String"/>
@@ -17,10 +21,6 @@ test('renders learn react link', () => {
   // <DisplayItemMap title = "abcd"/>
   // <InputItem />
   // <ItemC title="title" />
-
-
-  const linkButton = screen.getByRole("button");//i for ignore casing
-  expect(linkButton).toBeInTheDocument();
 
   // const linkDisplayItem = screen.getByRole("DisplayItem");
   // expect(linkDisplayItem).toBeInTheDocument();
@@ -31,10 +31,8 @@ test('renders learn react link', () => {
   // const ItemC = screen.getByRole("ItemC");
   // expect(ItemC).toBeInTheDocument();
   
-  const para = screen.getByText("Input box");
-  expect(para).toBeInTheDocument();
-
-
+  // const para = screen.getByText("Input box");
+  // expect(para).toBeInTheDocument();
 
 });
 
@@ -58,5 +56,29 @@ describe("input element", () => {
     fireEvent.change(input, {target: {value: "Abcde123"}});
     expect(input.value).toBe("Abcde123");
     expect(input).toBeInTheDocument();
+  })
+})
+
+describe("Add item button", () => {
+  test("Add item button adds an item", () =>{
+    render(<Common />)
+    const button1 = screen.getByText("Add Item");
+    fireEvent.click(button1);
+
+    const input = screen.getByText(/Done/i);
+    expect(input).toBeInTheDocument();
+
+  })
+})
+
+describe("Add item button", () => {
+  test("Add item button adds an item", () =>{
+    render(<Common />)
+    const button1 = screen.getByText("Add Item");
+    fireEvent.click(button1);
+
+    const input = screen.getByText(/Done/i);
+    expect(input).toBeInTheDocument();
+
   })
 })

@@ -63,6 +63,7 @@ function Common() {
     const applyChangeHandler = () => {
       setShaTextArray(shaTextArray => [...shaTextArray, inputText]);
       setShaTitleArray(shaTitleArray => [...shaTitleArray, inputTitle]);
+
       console.log(shaTextArray);
       console.log(shaTitleArray);
     }
@@ -169,6 +170,7 @@ const ItemC = (props) => {
         <h3>
           {props.title}
         </h3>
+
         <p>
           {props.note}
         </p>
